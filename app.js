@@ -14,8 +14,10 @@ new Vue({
 					per_page: this.perPage
 				}
 			}		
-			this.$http.get('https://s-vfu.ru/news/data.php',options).then(function(response) {
-				console.log(response);
+			this.$http.get('https://s-vfu.ru/news/data.php',options).then(function(response) {				
+				this.items= JSON.parse(response.body);
+				console.log(this.items);
+
 			},console.log)		
 		}
 	},
