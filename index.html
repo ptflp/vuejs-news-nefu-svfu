@@ -7,9 +7,19 @@
 </head>
 <body>
 	<div id="app">
-		<div v-for="item in items">
-			<img :src="'http://s-vfu.ru/'+item.img">
-		</div>
+	    <section class="grid">
+	      <div class="grid__item card" v-for="item in items">
+	        <div class="card__body">
+				<img :src="'http://s-vfu.ru/'+item.img">
+        	</div>
+	        <div class="card__footer media">
+	          <img src="photo.user.profile_image.small" alt="" class="media__obj">
+	          <div class="media__body">
+	            <a href="photo.user.portfolio_url" target="_blank">asdas</a>
+	          </div>
+	        </div>
+	      </div>
+    	</section>
 	</div>
 	<script src="https://unpkg.com/vue"></script>
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/vue.resource/1.0.3/vue-resource.min.js"></script>
