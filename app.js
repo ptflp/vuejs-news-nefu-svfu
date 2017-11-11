@@ -10,12 +10,13 @@ new Vue({
 		fetchPhotos: function(page) {
 			var options = {
 				params: {
-					page: page,
-					per_page: this.perPage
+					PAGEN_1: page,
+					perPage: this.perPage
 				}
 			}		
-			this.$http.get('https://s-vfu.ru/news/data.php',options).then(function(response) {				
-				this.items= JSON.parse(response.body);
+			this.$http.get('https://www.s-vfu.ru/news/json/',options).then(function(response) {
+				console.log(response);
+				this.items= response.data.ITEMS;
 				console.log(this.items);
 
 			},console.log)		
