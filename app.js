@@ -32,4 +32,3 @@ var v= new Vue({
 		this.fetchPhotos(this.currentPage)
 	}
 })
-console.log(v);
