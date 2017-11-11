@@ -6,23 +6,61 @@
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
+	<template id="pagination-template">
+		<div class="pagination">
+		  <div class="pagination__left">
+		    <a href="#" v-if="hasPrev()" @click.prevent="changePage(prevPage)">Предыдущая</a>
+		  </div>
+		  <div class="pagination__mid">
+		    <ul>
+		      <li v-if="hasFirst()"><a href="#" @click.prevent="changePage(1)">1</a></li>
+		      <li v-if="hasFirst()">...</li>
+		      <li v-for="page in pages">
+		        <a href="#" @click.prevent="changePage(page)" :class="{ current: current == page }">
+		          {{ page }}
+		        </a>
+		      </li>
+		      <li v-if="hasLast()">...</li>
+		      <li v-if="hasLast()"><a href="#" @click.prevent="changePage(totalPages)">{{ totalPages }}</a></li>
+		    </ul>
+		  </div>
+		  <div class="pagination__right">
+		    <a href="#" v-if="hasNext()" @click.prevent="changePage(nextPage)">Следующая</a>
+		  </div>
+		</div>
+	</template>
 	<div id="app">
+
+    <pagination 
+      :current="currentPage" 
+      :total="totalItems" 
+      :per-page="perPage" 
+      @page-changed="fetchPhotos"
+    ></pagination>
+
 	    <section class="grid">
 	      <div class="grid__item card" v-for="item in items">
 	        <div class="card__body">
 				<img :src="'http://s-vfu.ru/'+item.DETAIL_PICTURE.SRC">
         	</div>
 	        <div class="card__footer media">
-	          <img  src="photo.user.profile_image.small" alt="" class="media__obj">
+	          <img  alt="" class="media__obj">
 	          <div class="media__body">
-	            <a href="photo.user.portfolio_url" target="_blank">{{item.name}}</a>
+	            <a :href="'https://www.s-vfu.ru/news/detail.php?ELEMENT_ID='+item.ID" target="_blank">{{item.NAME}}</a>
 	          </div>
 	        </div>
 	      </div>
     	</section>
+    <pagination 
+      :current="currentPage" 
+      :total="totalItems" 
+      :per-page="perPage" 
+      @page-changed="fetchPhotos"
+    ></pagination>
 	</div>
 	<script src="https://unpkg.com/vue"></script>
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/vue.resource/1.0.3/vue-resource.min.js"></script>
+	<script src="pagination.js"></script>
 	<script src="app.js"></script>
 </body>
 </html>
