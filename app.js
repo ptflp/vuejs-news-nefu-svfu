@@ -1,4 +1,4 @@
-new Vue({
+var v= new Vue({
 	el: '#app',
 	data: {
 		items: [],
@@ -11,18 +11,25 @@ new Vue({
 			var options = {
 				params: {
 					PAGEN_1: page,
-					perPage: this.perPage
+					perPage: this.perPage,
+          			clear_cache: 'Y'
 				}
 			}		
-			this.$http.get('https://www.s-vfu.ru/news/json/',options).then(function(response) {
+			this.$http.get('http://www.s-vfu.ru/news/json/',options).then(function(response) {
 				console.log(response);
-				this.items= response.data.ITEMS;
+				var f= JSON.parse(response.body);
+				console.log(f);
+				this.items= f.ITEMS;
+				this.currentpage = page;
+       		 	console.log(this.currentPage);
+				this.totalItems = parseInt(f.NAV_RESULT.nSelectedCount);
 				console.log(this.items);
 
-			},console.log)		
+			},console.log)	
 		}
 	},
-	created: function () {
+	created: function () { //Инициализация при загрузке!
 		this.fetchPhotos(this.currentPage)
 	}
 })
+console.log(v);
