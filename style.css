@@ -186,3 +186,14 @@ body {
     font-family: Courier, serif;
     font-size: 13px;
 }
+
+.rating {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #3398dc;
+    color: white;
+    padding: 10px;
+    font-family: Courier, serif;
+    font-size: 13px;
+}
