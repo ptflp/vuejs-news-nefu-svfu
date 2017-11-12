@@ -1,6 +1,7 @@
 var v= new Vue({
 	el: '#app',
 	data: {
+    	showModal: false,
 		items: [],
 		totalItems: 0,
 		perPage: 9,
