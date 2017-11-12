@@ -220,7 +220,7 @@ body {
   width: 92%;
   max-width: 1024px;
   margin: 5% auto;
-  padding: 20px 30px;
+  padding: 0;
   background-color: #fff;
   border-radius: 2px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
@@ -229,16 +229,19 @@ body {
 }
 
 .modal-header h3 {
-  margin-top: 0;
-  color: #42b983;
+    margin-top: 0;
+    color: #42b983;
+    padding: 5px 30px;
 }
 
 .modal-header img {
+    width:100%;
     max-width: 100%;
 }
 
 .modal-body {
-  margin: 20px 0;
+    margin: 0px 0;
+    padding: 0px 30px;
 }
 
 .modal-default-button {
@@ -284,5 +287,5 @@ body {
     color: #ea4c89;
 }
 .modal-footer {
-    padding: 25px 0;
+    padding: 0 42px 50px 30px;
 }
