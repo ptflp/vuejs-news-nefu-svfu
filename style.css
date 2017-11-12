@@ -6,7 +6,7 @@ body {
   background-color: #f5f6f7;
   display: flex;
   justify-content: center;
-  padding: 120px 0 80px;
+  padding: 0px 0 80px;
 }
 
 #app {
@@ -165,4 +165,12 @@ body {
 
 .pagination__mid li {
   display: inline-block;
+}
+
+
+.content-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
 }
