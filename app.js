@@ -5,7 +5,10 @@ var v= new Vue({
 		items: [],
 		totalItems: 0,
 		perPage: 9,
-		currentPage: 1
+		currentPage: 1,
+		title: '',
+		detail: '',
+		img: ''
 	},
 	methods: {
 		fetchPhotos: function(page) {
@@ -27,6 +30,12 @@ var v= new Vue({
 				console.log(this.items);
 
 			},console.log)	
+		},
+		showItem: function(item) {
+			this.title=item.NAME;
+			this.detail=item.DETAIL_TEXT;
+			this.img=item.DETAIL_PICTURE.SRC;
+			this.showModal = true;
 		}
 	},
 	created: function () { //Инициализация при загрузке!
