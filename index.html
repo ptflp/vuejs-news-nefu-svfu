@@ -30,7 +30,7 @@
 		</div>
 	</template>
 	<div id="app">
-		
+
 		<div class="content-center">
 			<img src="http://s1.s-vfu.ru/bitrix/templates/s1/assets/img/logo/logo-1.png" alt="">
 		</div>
@@ -46,6 +46,7 @@
 	      <div class="grid__item card" v-for="item in items">
 	        <div class="card__body">
 				<img :src="'http://s-vfu.ru/'+item.DETAIL_PICTURE.SRC">
+				<div class="views">Просмотров: {{item.PROPERTIES.VIEWS.VALUE}}</div>
         	</div>
 	        <div class="card__footer media">
 	          <img  alt="" class="media__obj">
